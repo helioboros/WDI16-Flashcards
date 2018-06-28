@@ -33,7 +33,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route exact path="/subjects" render={SubjectPageWrapper} />
-            <Route exact path="/subjects/:subjectId" component={FlashcardPage} />
+            {/* <Route exact path="/subjects/:subjectId" component={FlashcardPage} /> */}
           </Switch>
         </div>
       </Router>

@@ -28,31 +28,16 @@ class SubjectPage extends Component {
         return (
             <div>
                 <h1>subject list</h1>
-                {this.props.subjects.map((subject) => {
-                    return (
-                        <Link key={subject._id} to={`/subject/${subject._id}`}>{subject.title}</Link>
-                    )
-                })}
+                {this.state.subjects.map(subject => (
+                    <Link key={subject._id} to={`/${subject._id}`}>
+                        <h3>Title: {subject.title}</h3>
+                        <p>Description: {subject.description}</p>
+                    </Link>
+                ))}
+                <button onClick={this.toggleShowNewForm}>Create New</button>
 
-                <h3>Create a subject</h3>
-                <form onSubmit={this.handleSubmit}>
-                    <input
-                        placeholder="Subject Name"
-                        type="text"
-                        name="title"
-                        value={this.state.title}
-                        onChange={this.handleChange}
-                    />
-                    <input
-                        placeholder="Description"
-                        type="text"
-                        name="description"
-                        value={this.state.description}
-                        onChange={this.handleChange}
-                    />
+                {this.state.showNewForm ? <NewSubjectForm getSubjects={this.getSubjects} /> : null}
 
-                    <button type="submit">Submit</button>
-                </form>
             </div>
         )
     }
