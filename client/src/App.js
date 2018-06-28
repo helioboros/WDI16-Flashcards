@@ -1,21 +1,44 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import { Link, Switch, BrowserRouter as Router, Route } from 'react-router-dom'
+import axios from 'axios'
+import HomePage from './components/HomePage'
+import SubjectPage from './components/SubjectPage'
+import FlashcardPage from './components/FlashcardPage'
 
 class App extends Component {
-  render() {
+  state = {
+    subjects: []
+  }
+
+  componentDidMount () {
+    axios.get('/api/subjects').then((res) => {
+      this.setState({ subjects: res.data.subjects })
+    }).catch((err) => {
+      console.error(err)
+    })
+  }
+
+  render () {
+    const SubjectPageWrapper = (props) => (
+      <SubjectPage subjects={this.state.subjects} {...props} />
+    )
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
+      <Router>
+        <div>
+          <div>
+            <Link to="/">Home</Link>
+            <Link to="/subjects">Subjects</Link>
+          </div>
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route exact path="/subjects" render={SubjectPageWrapper} />
+            <Route exact path="/subject/:subjectId" component={FlashcardPage} />
+          </Switch>
+        </div>
+      </Router>
+    )
   }
 }
 
-export default App;
+export default App
