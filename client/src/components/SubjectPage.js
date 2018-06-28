@@ -5,8 +5,7 @@ import NewSubjectForm from './NewSubjectForm'
 
 class SubjectPage extends Component {
     state = {
-        title: "",
-        description: "",
+        subjects: []
     }
 
     componentWillMount () {
