@@ -30,7 +30,7 @@ class SubjectPage extends Component {
                 <h1>subject list</h1>
                 {this.props.subjects.map((subject) => {
                     return (
-                        <Link key={subject._id} to={`/subject/${subject._id}`}>{subject.subjectName}</Link>
+                        <Link key={subject._id} to={`/subject/${subject._id}`}>{subject.title}</Link>
                     )
                 })}
 
@@ -39,8 +39,8 @@ class SubjectPage extends Component {
                     <input
                         placeholder="Subject Name"
                         type="text"
-                        name="subjectName"
-                        value={this.state.subjectName}
+                        name="title"
+                        value={this.state.title}
                         onChange={this.handleChange}
                     />
                     <input
