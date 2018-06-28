@@ -1,12 +1,25 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import NewSubjectForm from './NewSubjectForm'
 
 class SubjectPage extends Component {
     state = {
         title: "",
         description: "",
     }
+
+    componentWillMount () {
+        this.getSubjects()
+      }
+    
+      getSubjects = async () => {
+        const res = await axios.get('/api/subjects')
+        this.setState({subjects: res.data})
+      }
+      toggleShowNewForm = () => {
+        this.setState({showNewForm: !this.state.showNewForm})
+      }
 
     handleChange = (event) => {
         const inputName = event.target.name
