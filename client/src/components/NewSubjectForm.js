@@ -6,13 +6,13 @@ class NewSubjectForm extends Component {
         title: "",
         description: ""
     }
+
     handleChange = (event) => {
-        const title = event.target.title
+        const title = event.target.name
         const newState = { ...this.state }
         newState[title] = event.target.value
         this.setState(newState)
     }
-
     handleSubmit = async (event) => {
         event.preventDefault()
         const payload = {
