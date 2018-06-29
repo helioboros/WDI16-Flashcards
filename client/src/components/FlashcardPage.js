@@ -1,5 +1,13 @@
 import React, { Component } from "react"
 import axios from 'axios'
+import styled from 'styled-components'
+
+const DeleteButton = styled.div`
+    display: flex;
+    button {
+        background: yellow;
+    }
+`
 
 class FlashcardPage extends Component {
     state = {
@@ -30,29 +38,27 @@ class FlashcardPage extends Component {
         const subjectId = this.props.match.params.subjectId
         const flashcardToSend = this.state.flashcards.find(idea => idea._id === flashcardId)
         axios.patch(`/api/subjects/${subjectId}/${flashcardId}`, flashcardToSend).then((res) => {
-          this.setState({
-            subject: res.data.subject,
-            flashcards: res.data.subject.flashcards
-          })
+            this.setState({
+                subject: res.data.subject,
+                flashcards: res.data.subject.flashcards
+            })
         })
-      }
-    
-      deleteFlashcard = (flashcardId) => {
+    }
+    deleteFlashcard = (flashcardId) => {
         const subjectId = this.props.match.params.subjectId
-    
         axios.delete(`/api/subjects/${subjectId}/${flashcardId}`).then((res) => {
-          this.setState({
-            subject: res.data.subject,
-            flashcards: res.data.subject.flashcards
-          })
+            this.setState({
+                subject: res.data.subject,
+                flashcards: res.data.subject.flashcards
+            })
         })
-      }
+    }
     handleChange = (event, flashcardId) => {
         const newFlashcardsArray = [...this.state.flashcards]
         const newFlashcard = newFlashcardsArray.find(flashcard => flashcard._id === flashcardId)
-        newFlashcard[inputName] = userInput
         const inputName = event.target.name
         const userInput = event.target.description
+        newFlashcard[inputName] = userInput
         this.setState({ flashcards: newFlashcardsArray })
     }
     render() {
@@ -66,9 +72,9 @@ class FlashcardPage extends Component {
                     {this.state.flashcards.map(flashcard => {
                         return (
                             <div key={flashcard._id}>
-                                <div onClick={() => this.deleteflashcard(flashcard._id)}>
+                                <DeleteButton onClick={() => this.deleteFlashcard(flashcard._id)}>
                                     <button>X</button>
-                                </div>
+                                </DeleteButton>
                                 <input
                                     type="text"
                                     name="question"
@@ -80,8 +86,8 @@ class FlashcardPage extends Component {
                                     value={flashcard.answer}
                                     onChange={(event) => this.handleChange(event, flashcard._id)}
                                 />
-                                <div onClick = {() => this.updateFlashcard(flashcard._id)}>
-                                <button>Save Changes</button>
+                                <div onClick={() => this.updateFlashcard(flashcard._id)}>
+                                    <button>Save Changes</button>
                                 </div>
                             </div>
                         )
