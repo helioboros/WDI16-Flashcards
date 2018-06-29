@@ -16,9 +16,17 @@ class FlashcardPage extends Component {
             })
         })
     }
-    //handleChange
+    createNewFlashcard = () => {
+        const subjectId = this.props.match.params.subjectId
+
+        axios.post(`/api/subjects/${subjectId}/flashcards`).then((res) => {
+            this.setState({
+                subject: res.data.subject,
+                flashcards: res.data.subject.flashcards
+            })
+        })
+    }
     //updateFlashcard
-    //create new flashcard
     //delete flashcard
     handleChange = (event, flashcardId) => {
         const newFlashcardsArray = [...this.state.flashcards]
@@ -26,8 +34,8 @@ class FlashcardPage extends Component {
         newFlashcard[inputName] = userInput
         const inputName = event.target.name
         const userInput = event.target.description
-        this.setState({flashcards: newFlashcardsArray})
-      }
+        this.setState({ flashcards: newFlashcardsArray })
+    }
     render() {
         return (
             <div>
