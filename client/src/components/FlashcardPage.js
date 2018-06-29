@@ -1,10 +1,22 @@
-import React, {Component} from "react"
+import React, { Component } from "react"
 
 class FlashcardPage extends Component {
-//DISPLAY ALL FLASHCARDS
+    //DISPLAY ALL FLASHCARDS
     render() {
         return (
-            <div>hungus bungus</div>
+            <div>
+                <div>
+                    <h1>{this.state.user.userName}'s flashcard Board</h1>
+                    <button onClick={this.createNewFlashcard}>New flashcard</button>
+                </div>
+                <div>
+                    {this.state.flashcards.map(flashcard => {
+                        return (
+// uuuh flashcards
+                        )
+                    })}
+                </div>
+            </div>
         )
     }
 }
