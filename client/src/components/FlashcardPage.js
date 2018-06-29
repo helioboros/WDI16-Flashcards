@@ -18,6 +18,8 @@ class FlashcardPage extends Component {
     }
     //handleChange
     //updateFlashcard
+    //create new flashcard
+    //delete flashcard
     render() {
         return (
             <div>
