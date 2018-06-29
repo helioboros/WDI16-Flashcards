@@ -19,11 +19,9 @@ class SubjectPage extends Component {
     state = {
         subjects: []
     }
-
     componentWillMount() {
         this.getSubjects()
     }
-
     getSubjects = async () => {
         const res = await axios.get('/api/subjects')
         this.setState({ subjects: res.data.subjects })
@@ -31,7 +29,6 @@ class SubjectPage extends Component {
     toggleShowNewForm = () => {
         this.setState({ showNewForm: !this.state.showNewForm })
     }
-
     handleChange = (event) => {
         const inputName = event.target.name
         const subjectInput = event.target.value
@@ -53,6 +50,7 @@ class SubjectPage extends Component {
                 subject: res.data.subject
             })
         })
+        this.getSubjects()
     }
 
     render() {
