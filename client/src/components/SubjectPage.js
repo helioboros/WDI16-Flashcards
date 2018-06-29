@@ -40,7 +40,6 @@ class SubjectPage extends Component {
     handleSubmit = (event) => {
         event.preventDefault()
         axios.post('/api/subjects', this.state).then((res) => {
-            console.log(res.data)
             this.props.history.push(`/subjects/${res.data._id}`)
         })
     }
@@ -69,9 +68,7 @@ class SubjectPage extends Component {
                     </Subject>
                 ))}
                 <button onClick={this.toggleShowNewForm}>Create New</button>
-
                 {this.state.showNewForm ? <NewSubjectForm getSubjects={this.getSubjects} /> : null}
-
             </div>
         )
     }
