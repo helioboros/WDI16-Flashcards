@@ -20,6 +20,14 @@ class FlashcardPage extends Component {
     //updateFlashcard
     //create new flashcard
     //delete flashcard
+    handleChange = (event, flashcardId) => {
+        const newFlashcardsArray = [...this.state.flashcards]
+        const newFlashcard = newFlashcardsArray.find(flashcard => flashcard._id === flashcardId)
+        newFlashcard[inputName] = userInput
+        const inputName = event.target.name
+        const userInput = event.target.description
+        this.setState({flashcards: newFlashcardsArray})
+      }
     render() {
         return (
             <div>
