@@ -29,7 +29,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/subjects', subjectsRouter)
-app.use('/api/subjects/:subjectId/flashcards', flashcardsRouter)
+app.use('/api/subjects/:subjectId/', flashcardsRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
