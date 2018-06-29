@@ -24,4 +24,11 @@ router.post('/', (req, res) => {
   })
 })
 
+router.delete('/:id', (req, res) => {
+  const subjectId = req.params.id
+  Subject.findByIdAndRemove(subjectId).then((subject) => {
+    res.json(subject)
+  })
+})
+
 module.exports = router;
