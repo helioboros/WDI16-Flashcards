@@ -15,24 +15,22 @@ router.post('/', function(req, res) {
 })
 
 router.patch("/:id", async (req, res) => {
-    const subject = Subject.findById(req.params.subjectId)
+    const subject = await Subject.findById(req.params.subjectId)
     const flashcardId = req.params.id
     const flashcardToEdit = subject.flashcards.id(flashcardId)
     flashcardToEdit.question = req.body.question
     flashcardToEdit.answer = req.body.answer
-    const savedFlashcard = await flashcard.save()
+    const savedFlashcard = await flashcardToEdit.save()
     res.send({
         flashcard: savedFlashcard
     })
 })
 
 router.delete("/:id", async (req, res) => {
-    const subject = Subject.findById(req.params.subjectId)
+    const subject = await Subject.findById(req.params.subjectId)
     subject.flashcards.id(req.params.id).remove()
-    const savedSubject = await subject.save
-    res.send({
-        subject: savedSubject
-    })
+    const savedSubject = await subject.save()
+    res.send(savedSubject)
 })
 
 module.exports = router

@@ -26,7 +26,6 @@ class FlashcardPage extends Component {
     }
     createNewFlashcard = () => {
         const subjectId = this.props.match.params.subjectId
-
         axios.post(`/api/subjects/${subjectId}/`).then((res) => {
             this.setState({
                 subject: res.data.subject,
