@@ -7,6 +7,24 @@ class NewSubjectForm extends Component {
         description: ""
     }
     //onChange, onSubmit
+
+    handleChange = (event) => {
+        const title = event.target.title
+        const newState = {...this.state}
+        newState[title] = event.target.value
+        this.setState(newState)
+      }
+    
+      handleSubmit = async (event) => {
+        event.preventDefault()
+        const payload = {
+          title: this.state.title,
+          description: this.state.description
+        }
+        await axios.post('/api/subjects', payload)
+        await this.props.getSubjects()
+      }
+
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
