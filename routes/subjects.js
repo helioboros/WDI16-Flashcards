@@ -5,7 +5,7 @@ const {Subject} = require('../db/schema')
 /* GET subject listing. */
 router.get('/', function(req, res, next) {
   Subject.find().then((subjects) => {
-    res.send({
+    res.json({
       subjects
     })
   })

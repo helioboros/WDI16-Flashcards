@@ -14,7 +14,7 @@ class SubjectPage extends Component {
     
       getSubjects = async () => {
         const res = await axios.get('/api/subjects')
-        this.setState({subjects: res.data})
+        this.setState({subjects: res.data.subjects})
       }
       toggleShowNewForm = () => {
         this.setState({showNewForm: !this.state.showNewForm})
@@ -41,7 +41,7 @@ class SubjectPage extends Component {
             <div>
                 <h1>subject list</h1>
                 {this.state.subjects.map(subject => (
-                    <Link key={subject._id} to={`/${subject._id}`}>
+                    <Link key={subject._id} to={`/subjects/${subject._id}`}>
                         <h3>Title: {subject.title}</h3>
                         <p>Description: {subject.description}</p>
                     </Link>
