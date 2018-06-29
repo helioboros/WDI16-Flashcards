@@ -9,7 +9,7 @@ class FlashcardPage extends Component {
     componentDidMount() {
         const subjectId = this.props.match.params.subjectId
 
-        axios.get(`/api/subjects/${subjectId}/flashcards`).then((res) => {
+        axios.get(`/api/subjects/${subjectId}/`).then((res) => {
             this.setState({
                 subject: res.data.subject,
                 flashcards: res.data.subject.flashcards
@@ -19,15 +19,34 @@ class FlashcardPage extends Component {
     createNewFlashcard = () => {
         const subjectId = this.props.match.params.subjectId
 
-        axios.post(`/api/subjects/${subjectId}/flashcards`).then((res) => {
+        axios.post(`/api/subjects/${subjectId}/`).then((res) => {
             this.setState({
                 subject: res.data.subject,
                 flashcards: res.data.subject.flashcards
             })
         })
     }
-    //updateFlashcard
-    //delete flashcard
+    updateFlashcard = (flashcardId) => {
+        const subjectId = this.props.match.params.subjectId
+        const flashcardToSend = this.state.flashcards.find(idea => idea._id === flashcardId)
+        axios.patch(`/api/subjects/${subjectId}/${flashcardId}`, flashcardToSend).then((res) => {
+          this.setState({
+            subject: res.data.subject,
+            flashcards: res.data.subject.flashcards
+          })
+        })
+      }
+    
+      deleteFlashcard = (flashcardId) => {
+        const subjectId = this.props.match.params.subjectId
+    
+        axios.delete(`/api/subjects/${subjectId}/${flashcardId}`).then((res) => {
+          this.setState({
+            subject: res.data.subject,
+            flashcards: res.data.subject.flashcards
+          })
+        })
+      }
     handleChange = (event, flashcardId) => {
         const newFlashcardsArray = [...this.state.flashcards]
         const newFlashcard = newFlashcardsArray.find(flashcard => flashcard._id === flashcardId)
@@ -43,7 +62,7 @@ class FlashcardPage extends Component {
                     <h1>{this.state.subject.subjectTitle}</h1>
                     <button onClick={this.createNewFlashcard}>New flashcard</button>
                 </div>
-                {/* <div>
+                <div>
                     {this.state.flashcards.map(flashcard => {
                         return (
                             <div key={flashcard._id}>
@@ -67,7 +86,7 @@ class FlashcardPage extends Component {
                             </div>
                         )
                     })}
-                </div> */}
+                </div>
             </div>
         )
     }
