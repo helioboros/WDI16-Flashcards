@@ -46,9 +46,10 @@ class FlashcardPage extends Component {
     deleteFlashcard = (flashcardId) => {
         const subjectId = this.props.match.params.subjectId
         axios.delete(`/api/subjects/${subjectId}/${flashcardId}`).then((res) => {
+            console.log(res.data)
             this.setState({
-                subject: res.data.subject,
-                flashcards: res.data.subject.flashcards
+                subject: res.data,
+                flashcards: res.data.flashcards
             })
         })
     }
