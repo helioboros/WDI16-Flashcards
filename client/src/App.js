@@ -11,6 +11,17 @@ injectGlobal`
   html {
     background: #FFFD82;
     font-size: 2vw;
+    color: #FF9B71;
+    a {
+      color: #E84855;
+    }
+    .column {
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      align-items: space-between;
+      justify-content: space-between;
+    }
   }
 `
 const Navbar = styled.div`
@@ -20,9 +31,9 @@ const Navbar = styled.div`
   justify-content: space-around;
   background: #1B998B;
   border-bottom: 5px solid #2D3047;
-  color: white;
+  color: #FFFD82;
   a {
-  color: white;
+  color: #FFFD82;
   };
 `
 
