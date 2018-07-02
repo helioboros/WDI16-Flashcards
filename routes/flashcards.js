@@ -20,10 +20,6 @@ router.patch("/:id", async (req, res) => {
     const flashcardToEdit = subject.flashcards.id(flashcardId)
     flashcardToEdit.question = req.body.question
     flashcardToEdit.answer = req.body.answer
-    // const savedFlashcard = await flashcardToEdit.save()
-    // res.send({
-    //     flashcard: savedFlashcard
-    // })
     const savedSubject = await subject.save()
     res.send({
         subject: savedSubject

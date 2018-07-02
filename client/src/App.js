@@ -7,23 +7,6 @@ import FlashcardPage from './components/FlashcardPage'
 import styled from 'styled-components'
 import { injectGlobal } from 'styled-components'
 
-injectGlobal`
-  html {
-    background: #FFFD82;
-    font-size: 2vw;
-    color: #FF9B71;
-    a {
-      color: #E84855;
-    }
-    .column {
-      max-width: 600px;
-      display: flex;
-      flex-direction: column;
-      align-items: space-between;
-      justify-content: space-between;
-    }
-  }
-`
 const Navbar = styled.div`
   display: flex;
   flex-direction: row;
@@ -35,6 +18,25 @@ const Navbar = styled.div`
   a {
   color: #FFFD82;
   };
+`
+injectGlobal`
+  html {
+    background: #FFFD82;
+    font-size: 2vw;
+    color: #FF9B71;
+    a {
+      color: #E84855;
+    }
+    .column {
+      display: flex;
+      max-width: 60vw;
+      flex-direction: column;
+      align-items: space-around;
+      justify-content: space-around;
+      padding: 1vw;
+      margin: 1vw;
+    }
+  }
 `
 
 class App extends Component {

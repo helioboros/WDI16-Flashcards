@@ -3,7 +3,8 @@ import axios from 'axios'
 import styled from 'styled-components'
 
 const ListOfFlashcards = styled.div`
-
+    display: flex;
+    align-items: flex-start;
 `
 const Heading = styled.div`
 
@@ -74,7 +75,7 @@ class FlashcardPage extends Component {
         const newFlashcardsArray = [...this.state.flashcards]
         const newFlashcard = newFlashcardsArray.find(flashcard => flashcard._id === flashcardId)
         const inputName = event.target.name
-        const userInput = event.target.description
+        const userInput = event.target.value
         newFlashcard[inputName] = userInput
         this.setState({ flashcards: newFlashcardsArray })
     }

@@ -4,7 +4,6 @@ import axios from 'axios'
 import styled from 'styled-components'
 import NewSubjectForm from './NewSubjectForm'
 
-
 const DeleteButton = styled.div`
     display: flex;
     justify-content: flex-end;
@@ -17,11 +16,6 @@ const DeleteButton = styled.div`
 const Subject = styled.div`
     border: 3px solid #E84855;
     border-radius: 5%;
-`
-const Text = styled.div`
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
 `
 
 class SubjectPage extends Component {
@@ -71,12 +65,12 @@ class SubjectPage extends Component {
                             <DeleteButton onClick={() => this.deleteSubject(subject._id)}>
                                 <button>delete</button>
                             </DeleteButton>
-                            <Text>
+                            <div>
                                 <Link key={subject._id} to={`/subjects/${subject._id}`}>
                                     <h3>{subject.title}</h3>
                                     <p>{subject.description}</p>
                                 </Link>
-                            </Text>
+                            </div>
                         </Subject>
                     ))}
                 </div>

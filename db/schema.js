@@ -3,8 +3,14 @@ const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 
 const flashcardSchema = new Schema({
-    question: String,
-    answer: String
+    question: {
+        type: String,
+        default: 'New Question'
+    },
+    answer: {
+        type: String,
+        default: 'New Answer'
+    }
 })
 const subjectSchema = new Schema({
     title: {
