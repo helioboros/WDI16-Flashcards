@@ -37,7 +37,9 @@ injectGlobal`
       margin: 1vw;
     }
     .header {
-
+      display: flex;
+      justify-content: space-around;
+      margin: 10 auto;
     }
     .button {
       display: flex;
@@ -49,7 +51,8 @@ injectGlobal`
       }
     }
     .component {
-
+      display: flex;
+      flex-direction: column;
     }
   }
 `

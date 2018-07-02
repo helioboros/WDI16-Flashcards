@@ -16,8 +16,8 @@ Due to medical complications arising, this was not implemented. This instead fun
 
 Another function originally planned was to be able to select an answer from a list of right/wrong answers to determine what to do with the card. Again, this was not implemented.
 
-###Planning Process
+##Planning Process
 
-![data planning]https://78.media.tumblr.com/88ef24b40e5bf1c1f254dfae77ae3f10/tumblr_paxtdidjLT1vzne5to1_500.png
+![data planning](https://78.media.tumblr.com/88ef24b40e5bf1c1f254dfae77ae3f10/tumblr_paxtdidjLT1vzne5to1_500.png)
 
-![wireframe]https://78.media.tumblr.com/0c2fa9db57891258501f7a11c4f2b98f/tumblr_paxtdidjLT1vzne5to2_500.png
+![wireframe](https://78.media.tumblr.com/0c2fa9db57891258501f7a11c4f2b98f/tumblr_paxtdidjLT1vzne5to2_500.png)
