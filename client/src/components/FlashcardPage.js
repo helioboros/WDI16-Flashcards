@@ -8,6 +8,21 @@ const DeleteButton = styled.div`
         background: yellow;
     }
 `
+const ListOfFlashcards = styled.div`
+
+`
+const NewFlashcard = styled.div`
+
+`
+const AllFlashcards = styled.div`
+
+`
+const IndividualFlashcard = styled.div`
+
+`
+const SaveButton = styled.div`
+
+`
 
 class FlashcardPage extends Component {
     state = {
@@ -37,6 +52,7 @@ class FlashcardPage extends Component {
         const subjectId = this.props.match.params.subjectId
         const flashcardToSend = this.state.flashcards.find(idea => idea._id === flashcardId)
         axios.patch(`/api/subjects/${subjectId}/${flashcardId}`, flashcardToSend).then((res) => {
+            console.log("saved")
             this.setState({
                 subject: res.data.subject,
                 flashcards: res.data.subject.flashcards
@@ -46,7 +62,6 @@ class FlashcardPage extends Component {
     deleteFlashcard = (flashcardId) => {
         const subjectId = this.props.match.params.subjectId
         axios.delete(`/api/subjects/${subjectId}/${flashcardId}`).then((res) => {
-            console.log(res.data)
             this.setState({
                 subject: res.data,
                 flashcards: res.data.flashcards
@@ -62,16 +77,17 @@ class FlashcardPage extends Component {
         this.setState({ flashcards: newFlashcardsArray })
     }
     render() {
+        const listOfFlashcards = this.state.flashcards || []
         return (
-            <div>
-                <div>
+            <ListOfFlashcards>
+                <NewFlashcard>
                     <h1>{this.state.subject.subjectTitle}</h1>
                     <button onClick={this.createNewFlashcard}>New flashcard</button>
-                </div>
-                <div>
-                    {this.state.flashcards.map(flashcard => {
+                </NewFlashcard>
+                <AllFlashcards>
+                    {listOfFlashcards.map(flashcard => {
                         return (
-                            <div key={flashcard._id}>
+                            <IndividualFlashcard key={flashcard._id}>
                                 <DeleteButton onClick={() => this.deleteFlashcard(flashcard._id)}>
                                     <button>X</button>
                                 </DeleteButton>
@@ -86,14 +102,14 @@ class FlashcardPage extends Component {
                                     value={flashcard.answer}
                                     onChange={(event) => this.handleChange(event, flashcard._id)}
                                 />
-                                <div onClick={() => this.updateFlashcard(flashcard._id)}>
+                                <SaveButton onClick={() => this.updateFlashcard(flashcard._id)}>
                                     <button>Save Changes</button>
-                                </div>
-                            </div>
+                                </SaveButton>
+                            </IndividualFlashcard>
                         )
                     })}
-                </div>
-            </div>
+                </AllFlashcards>
+            </ListOfFlashcards>
         )
     }
 }
