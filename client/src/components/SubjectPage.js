@@ -58,7 +58,9 @@ class SubjectPage extends Component {
     render() {
         return (
             <div>
+                <div className="header">
                 <h1>subject list</h1>
+                </div>
                 <div className="column">
                     {this.state.subjects.map(subject => (
                         <Subject key={subject._id}>

@@ -6,26 +6,8 @@ const ListOfFlashcards = styled.div`
     display: flex;
     align-items: flex-start;
 `
-const Heading = styled.div`
-
-`
-const NewFlashcard = styled.div`
-
-`
-const AllFlashcards = styled.div`
-
-`
 const IndividualFlashcard = styled.div`
 
-`
-const SaveButton = styled.div`
-
-`
-const DeleteButton = styled.div`
-    display: flex;
-    button {
-        background: yellow;
-    }
 `
 
 class FlashcardPage extends Component {
@@ -83,19 +65,19 @@ class FlashcardPage extends Component {
         const listOfFlashcards = this.state.flashcards || []
         return (
             <ListOfFlashcards>
-                <Heading>
+                <div className="header">
                     <h1>{this.state.subject.subjectTitle}</h1>
-                </Heading>
-                <NewFlashcard>
+                </div>
+                <div className="button">
                     <button onClick={this.createNewFlashcard}>New flashcard</button>
-                </NewFlashcard>
-                <AllFlashcards>
+                </div>
+                <div className="column">
                     {listOfFlashcards.map(flashcard => {
                         return (
-                            <IndividualFlashcard key={flashcard._id}>
-                                <DeleteButton onClick={() => this.deleteFlashcard(flashcard._id)}>
+                            <div className="component" key={flashcard._id}>
+                                <div className="button" onClick={() => this.deleteFlashcard(flashcard._id)}>
                                     <button>X</button>
-                                </DeleteButton>
+                                </div>
                                 <input
                                     type="text"
                                     name="question"
@@ -107,13 +89,13 @@ class FlashcardPage extends Component {
                                     value={flashcard.answer}
                                     onChange={(event) => this.handleChange(event, flashcard._id)}
                                 />
-                                <SaveButton onClick={() => this.updateFlashcard(flashcard._id)}>
+                                <div className="button" onClick={() => this.updateFlashcard(flashcard._id)}>
                                     <button>Save Changes</button>
-                                </SaveButton>
-                            </IndividualFlashcard>
+                                </div>
+                            </div>
                         )
                     })}
-                </AllFlashcards>
+                </div>
             </ListOfFlashcards>
         )
     }

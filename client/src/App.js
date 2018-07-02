@@ -36,6 +36,21 @@ injectGlobal`
       padding: 1vw;
       margin: 1vw;
     }
+    .header {
+
+    }
+    .button {
+      display: flex;
+      justify-content: flex-end;
+      margin: .5vw;
+      button {
+          background: #E84855;
+          color: #FFFD82;
+      }
+    }
+    .component {
+
+    }
   }
 `
 
@@ -59,17 +74,17 @@ class App extends Component {
 
     return (
       <Router>
-          <div>
-            <Navbar>
-              <Link to="/">Home</Link>
-              <Link to="/subjects">Subjects</Link>
-            </Navbar>
-            <Switch>
-              <Route exact path="/" component={HomePage} />
-              <Route exact path="/subjects" render={SubjectPageWrapper} />
-              <Route exact path="/subjects/:subjectId" component={FlashcardPage} />
-            </Switch>
-          </div>
+        <div>
+          <Navbar>
+            <Link to="/">Home</Link>
+            <Link to="/subjects">Subjects</Link>
+          </Navbar>
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route exact path="/subjects" render={SubjectPageWrapper} />
+            <Route exact path="/subjects/:subjectId" component={FlashcardPage} />
+          </Switch>
+        </div>
       </Router>
     )
   }
