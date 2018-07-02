@@ -18,7 +18,7 @@ Another function originally planned was to be able to select an answer from a li
 
 A difficulty I had early in the process was structuring my files incorrectly. I lost a chunk of commits due to the process of moving everything to a new repo.
 
-##Planning Process
+### Planning Process
 
 ![data planning](https://78.media.tumblr.com/88ef24b40e5bf1c1f254dfae77ae3f10/tumblr_paxtdidjLT1vzne5to1_500.png)
 
