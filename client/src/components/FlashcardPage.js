@@ -52,7 +52,6 @@ class FlashcardPage extends Component {
         const subjectId = this.props.match.params.subjectId
         const flashcardToSend = this.state.flashcards.find(idea => idea._id === flashcardId)
         axios.patch(`/api/subjects/${subjectId}/${flashcardId}`, flashcardToSend).then((res) => {
-            console.log("saved")
             this.setState({
                 subject: res.data.subject,
                 flashcards: res.data.subject.flashcards
