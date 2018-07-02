@@ -2,13 +2,10 @@ import React, { Component } from "react"
 import axios from 'axios'
 import styled from 'styled-components'
 
-const DeleteButton = styled.div`
-    display: flex;
-    button {
-        background: yellow;
-    }
-`
 const ListOfFlashcards = styled.div`
+
+`
+const Heading = styled.div`
 
 `
 const NewFlashcard = styled.div`
@@ -22,6 +19,12 @@ const IndividualFlashcard = styled.div`
 `
 const SaveButton = styled.div`
 
+`
+const DeleteButton = styled.div`
+    display: flex;
+    button {
+        background: yellow;
+    }
 `
 
 class FlashcardPage extends Component {
@@ -79,8 +82,10 @@ class FlashcardPage extends Component {
         const listOfFlashcards = this.state.flashcards || []
         return (
             <ListOfFlashcards>
-                <NewFlashcard>
+                <Heading>
                     <h1>{this.state.subject.subjectTitle}</h1>
+                </Heading>
+                <NewFlashcard>
                     <button onClick={this.createNewFlashcard}>New flashcard</button>
                 </NewFlashcard>
                 <AllFlashcards>
