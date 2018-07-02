@@ -16,6 +16,8 @@ Due to medical complications arising, this was not implemented. This instead fun
 
 Another function originally planned was to be able to select an answer from a list of right/wrong answers to determine what to do with the card. Again, this was not implemented.
 
+A difficulty I had early in the process was structuring my files incorrectly. I lost a chunk of commits due to the process of moving everything to a new repo.
+
 ##Planning Process
 
 ![data planning](https://78.media.tumblr.com/88ef24b40e5bf1c1f254dfae77ae3f10/tumblr_paxtdidjLT1vzne5to1_500.png)
