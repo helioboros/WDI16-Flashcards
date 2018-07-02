@@ -53,6 +53,7 @@ injectGlobal`
     .component {
       display: flex;
       flex-direction: column;
+      margin: 1px;
     }
   }
 `

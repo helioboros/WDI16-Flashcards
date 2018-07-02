@@ -4,15 +4,6 @@ import axios from 'axios'
 import styled from 'styled-components'
 import NewSubjectForm from './NewSubjectForm'
 
-const DeleteButton = styled.div`
-    display: flex;
-    justify-content: flex-end;
-    margin: .5vw;
-    button {
-        background: #E84855;
-        color: #FFFD82;
-    }
-`
 const Subject = styled.div`
     border: 3px solid #E84855;
     border-radius: 5%;
@@ -59,14 +50,14 @@ class SubjectPage extends Component {
         return (
             <div>
                 <div className="header">
-                <h1>subject list</h1>
+                    <h1>subject list</h1>
                 </div>
                 <div className="column">
                     {this.state.subjects.map(subject => (
                         <Subject key={subject._id}>
-                            <DeleteButton onClick={() => this.deleteSubject(subject._id)}>
+                            <div className="button" onClick={() => this.deleteSubject(subject._id)}>
                                 <button>delete</button>
-                            </DeleteButton>
+                            </div>
                             <div>
                                 <Link key={subject._id} to={`/subjects/${subject._id}`}>
                                     <h3>{subject.title}</h3>
@@ -76,8 +67,10 @@ class SubjectPage extends Component {
                         </Subject>
                     ))}
                 </div>
-                <button onClick={this.toggleShowNewForm}>Create New</button>
-                {this.state.showNewForm ? <NewSubjectForm getSubjects={this.getSubjects} /> : null}
+                <div className="button">
+                    <button onClick={this.toggleShowNewForm}>Create New</button>
+                    {this.state.showNewForm ? <NewSubjectForm getSubjects={this.getSubjects} /> : null}
+                </div>
             </div>
         )
     }

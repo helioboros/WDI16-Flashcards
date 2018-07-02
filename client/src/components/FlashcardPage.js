@@ -6,9 +6,6 @@ const ListOfFlashcards = styled.div`
     display: flex;
     align-items: flex-start;
 `
-const IndividualFlashcard = styled.div`
-
-`
 
 class FlashcardPage extends Component {
     state = {
