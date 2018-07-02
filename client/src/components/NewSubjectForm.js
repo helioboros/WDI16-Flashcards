@@ -1,5 +1,10 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import styled from 'styled-components'
+
+const SubjectForm = styled.div`
+
+`
 
 class NewSubjectForm extends Component {
     state = {
@@ -25,17 +30,19 @@ class NewSubjectForm extends Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <div>
-                    <label htmlFor="title">Title: </label>
-                    <input onChange={this.handleChange} type="text" name="title" value={this.state.title} />
-                </div>
-                <div>
-                    <label htmlFor="description">Description: </label>
-                    <input onChange={this.handleChange} type="text" name="description" value={this.state.description} />
-                </div>
-                <button>Submit</button>
-            </form>
+            <SubjectForm>
+                <form onSubmit={this.handleSubmit}>
+                    <div>
+                        <label htmlFor="title">Title: </label>
+                        <input onChange={this.handleChange} type="text" name="title" value={this.state.title} />
+                    </div>
+                    <div>
+                        <label htmlFor="description">Description: </label>
+                        <input onChange={this.handleChange} type="text" name="description" value={this.state.description} />
+                    </div>
+                    <button>Submit</button>
+                </form>
+            </SubjectForm>
         )
     }
 }
