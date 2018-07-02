@@ -59,7 +59,7 @@ class SubjectPage extends Component {
         return (
             <div>
                 <h1>subject list</h1>
-                <div class="column">
+                <div className="column">
                     {this.state.subjects.map(subject => (
                         <Subject key={subject._id}>
                             <DeleteButton onClick={() => this.deleteSubject(subject._id)}>

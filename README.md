@@ -2,6 +2,10 @@
 
 This is an app designed to let you test yourself with flashcards. It was built with a MERN stack.
 
+Heroku: https://wdi16-flashcards-app.herokuapp.com/
+
+Trello: https://trello.com/b/rJpx1XDj/wdi-project-3
+
 ## Process of Creating
 
 I originally took inspiration from a flashcard app we were shown in class.
